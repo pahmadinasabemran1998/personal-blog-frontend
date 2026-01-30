@@ -5,13 +5,14 @@ const PostList = ({ posts, onEdit, onDelete }) => {
 
     return (
         <div>
-            {posts.map((post) => {
+            {posts.map((post) => (
                 <div
                     key={post._id}
                     style={{
                         border: "1px solid #ccc",
                         padding: "1rem",
-                        marginBottom: "1rem"
+                        marginBottom: "1rem",
+                        borderRadius: "5px",
                     }}
                 >
                     <h3>{post.title}</h3>
@@ -19,7 +20,7 @@ const PostList = ({ posts, onEdit, onDelete }) => {
                     <button onClick={() => onEdit(post)}>Edit</button>
                     <button onClick={() => onDelete(post._id)}>Delete</button>
                 </div>
-            })}
+            ))}
         </div>
     );
 };

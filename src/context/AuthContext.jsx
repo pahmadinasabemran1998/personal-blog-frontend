@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import api from "../services/api";
 
 export const AuthContext = createContext();
@@ -8,16 +8,23 @@ export const AuthProvider = ({ children }) => {
         JSON.parse(localStorage.getItem("user")) || null
     );
 
+    // 🔑 Restore Authorization header on reload
+    useEffect(() => {
+        if (user?.token) {
+            api.defaults.headers.common.Authorization = `Bearer ${user.token}`;
+        }
+    }, []);
+
     const login = (userData) => {
         setUser(userData);
         localStorage.setItem("user", JSON.stringify(userData));
-        api.defaults.headers.common["Authorization"] = `Bearer ${userData.token}`;
+        api.defaults.headers.common.Authorization = `Bearer ${userData.token}`;
     };
 
     const logout = () => {
         setUser(null);
         localStorage.removeItem("user");
-        delete api.defaults.headers.common["Authorization"];
+        delete api.defaults.headers.common.Authorization;
     };
 
     return (

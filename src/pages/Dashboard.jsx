@@ -16,6 +16,7 @@ const Dashboard = () => {
         try {
             const { data } = await api.get("/api/posts");
             setPosts(data);
+            console.log(data);
         } catch (err) {
             console.error(err);
         }
@@ -23,8 +24,10 @@ const Dashboard = () => {
     };
 
     useEffect(() => {
-        fetchPosts();
-    }, []);
+        if (user?.token) {
+            fetchPosts();
+        }
+    }, [user]);
 
     const handleAddPost = async ({ title, content }) => {
         try {
