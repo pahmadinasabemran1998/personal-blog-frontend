@@ -1,16 +1,47 @@
-# React + Vite
+# Personal Blog Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic, interactive React + Vite frontend for a personal blog platform. Users can create, edit, delete, and view blog posts with a seamless interface and persistent data storage.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Create new posts with title and content
+- Edit existing posts
+- Delete posts
+- View all posts dynamically
+- Form validation with user-friendly error messages
+- Persistent storage via backend API
+- Protected dashboard using authentication
+- Loading and empty state UI
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Axios for API calls
+- Vanilla CSS for styling
+- React Router for navigation
+- Context API for authentication state
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repo:
+```bash
+git clone https://github.com/pahmadinasabemran1998/personal-blog-frontend.git
+cd personal-blog-frontend
+```
+2. Install dependencies:
+```bash
+npm install
+```
+3. Create a .env file with:
+```bash
+VITE_API_URL=http://localhost:5000
+```
+4. Start the dev server:
+```bash
+npm run dev
+```
+5. Visit http://localhost:5173 in your browser.
+
+## Backend Integration
+This frontend works with the [Personal Blog Backend](https://github.com/pahmadinasabemran1998/personal-blog-backend), which handles authentication, post management, and data persistence.
